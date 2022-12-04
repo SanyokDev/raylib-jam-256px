@@ -9,7 +9,7 @@ set out-list=%out-list:.c=.o%
 if exist *.o (
   :: cmd /k echo %out-list%
   emar rcs libraylib.a %out-list%
-  del /S *.o
+  del *.o
 ) else (
   for %%A in (%in-list%) do (
     emcc -c %src-dir%%%~A %cflags%
