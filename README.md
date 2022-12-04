@@ -1,7 +1,7 @@
 # Birball
 ![Birball](Media/Cover.png "Birball")
 
-## Description
+### Description
 A short game about a cute bird playing some ball.
 
 ### Media
