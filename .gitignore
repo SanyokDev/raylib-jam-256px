@@ -64,3 +64,9 @@ dkms.conf
 
 # Build folder
 [Bb]uilds
+
+# Wasm output
+[Mm]ake/*.data
+[Mm]ake/*.html
+[Mm]ake/*.js
+[Mm]ake/*.wasm
