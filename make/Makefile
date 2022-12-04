@@ -26,14 +26,14 @@
 # Define required environment variables
 #------------------------------------------------------------------------------------------------
 # Define target platform: PLATFORM_DESKTOP, PLATFORM_RPI, PLATFORM_DRM, PLATFORM_ANDROID, PLATFORM_WEB
-PLATFORM              ?= PLATFORM_DESKTOP
+PLATFORM              ?= PLATFORM_WEB
 
 # Define project variables
-PROJECT_NAME          ?= raylib_game
+PROJECT_NAME          ?= Birball
 PROJECT_VERSION       ?= 1.0
-PROJECT_BUILD_PATH    ?= .
+PROJECT_BUILD_PATH    ?= ../Projects/Birball/src
 
-RAYLIB_PATH           ?= ../../raylib
+RAYLIB_PATH           ?= ../Externals/raylib
 
 # Locations of raylib.h and libraylib.a/libraylib.so
 # NOTE: Those variables are only used for PLATFORM_OS: LINUX, BSD
@@ -55,7 +55,7 @@ BUILD_WEB_ASYNCIFY    ?= FALSE
 BUILD_WEB_SHELL       ?= minshell.html
 BUILD_WEB_HEAP_SIZE   ?= 134217728
 BUILD_WEB_RESOURCES   ?= TRUE
-BUILD_WEB_RESOURCES_PATH  ?= resources
+BUILD_WEB_RESOURCES_PATH  ?= ../Projects/Birball/resources
 
 # Use cross-compiler for PLATFORM_RPI
 ifeq ($(PLATFORM),PLATFORM_RPI)
@@ -129,11 +129,11 @@ RAYLIB_RELEASE_PATH 	?= $(RAYLIB_PATH)/src
 
 ifeq ($(PLATFORM),PLATFORM_WEB)
     # Emscripten required variables
-    EMSDK_PATH         ?= C:/emsdk
+    EMSDK_PATH         ?= D:/Dev/emsdk
     EMSCRIPTEN_PATH    ?= $(EMSDK_PATH)/upstream/emscripten
     CLANG_PATH          = $(EMSDK_PATH)/upstream/bin
-    PYTHON_PATH         = $(EMSDK_PATH)/python/3.9.2-1_64bit
-    NODE_PATH           = $(EMSDK_PATH)/node/14.15.5_64bit/bin
+    PYTHON_PATH         = $(EMSDK_PATH)/python/3.9.2-nuget_64bit
+    NODE_PATH           = $(EMSDK_PATH)/node/14.18.2_64bit/bin
     export PATH         = $(EMSDK_PATH);$(EMSCRIPTEN_PATH);$(CLANG_PATH);$(NODE_PATH);$(PYTHON_PATH):$$(PATH)
 endif
 
@@ -373,12 +373,12 @@ endif
 # Define source code object files required
 #------------------------------------------------------------------------------------------------
 PROJECT_SOURCE_FILES ?= \
-    raylib_game.c \
-    screen_logo.c \
-    screen_title.c \
-    screen_options.c \
-    screen_gameplay.c \
-    screen_ending.c
+    $(PROJECT_BUILD_PATH)/raylib_game.c \
+    $(PROJECT_BUILD_PATH)/screen_logo.c \
+    $(PROJECT_BUILD_PATH)/screen_title.c \
+    $(PROJECT_BUILD_PATH)/screen_options.c \
+    $(PROJECT_BUILD_PATH)/screen_gameplay.c \
+    $(PROJECT_BUILD_PATH)/screen_ending.c
 
 # Define all object files from source files
 OBJS = $(patsubst %.c, %.o, $(PROJECT_SOURCE_FILES))
