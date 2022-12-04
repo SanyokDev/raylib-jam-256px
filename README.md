@@ -1,6 +1,6 @@
-## $(Birball)
+## Birball
 
-![$(Birball)](Media/Cover.png "$(Birball)")
+![Birball](Media/Cover.png "Birball")
 
 ### Description
 
