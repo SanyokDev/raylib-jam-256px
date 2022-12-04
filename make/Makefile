@@ -373,12 +373,7 @@ endif
 # Define source code object files required
 #------------------------------------------------------------------------------------------------
 PROJECT_SOURCE_FILES ?= \
-    $(PROJECT_BUILD_PATH)/raylib_game.c \
-    $(PROJECT_BUILD_PATH)/screen_logo.c \
-    $(PROJECT_BUILD_PATH)/screen_title.c \
-    $(PROJECT_BUILD_PATH)/screen_options.c \
-    $(PROJECT_BUILD_PATH)/screen_gameplay.c \
-    $(PROJECT_BUILD_PATH)/screen_ending.c
+    $(PROJECT_BUILD_PATH)/game.c
 
 # Define all object files from source files
 OBJS = $(patsubst %.c, %.o, $(PROJECT_SOURCE_FILES))

@@ -15,18 +15,10 @@
     <Content Include="resources\coin.wav" />
     <Content Include="resources\mecha.png" />
     <Content Include="src\raylib.ico" />
-    <ResourceCompile Include="src\raylib_game.rc" />
+    <ResourceCompile Include="src\game.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\raylib_game.c" />
-    <ClCompile Include="src\screen_ending.c" />
-    <ClCompile Include="src\screen_gameplay.c" />
-    <ClCompile Include="src\screen_logo.c" />
-    <ClCompile Include="src\screen_options.c" />
-    <ClCompile Include="src\screen_title.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\screens.h" />
+    <ClCompile Include="src\game.c" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Raylib\Raylib.vcxproj">
