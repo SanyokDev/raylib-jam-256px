@@ -51,7 +51,7 @@ BUILD_MODE            ?= RELEASE
 USE_WAYLAND_DISPLAY   ?= FALSE
 
 # PLATFORM_WEB: Default properties
-BUILD_WEB_ASYNCIFY    ?= FALSE
+BUILD_WEB_ASYNCIFY    ?= TRUE
 BUILD_WEB_SHELL       ?= minshell.html
 BUILD_WEB_HEAP_SIZE   ?= 134217728
 BUILD_WEB_RESOURCES   ?= TRUE
@@ -177,6 +177,9 @@ endif
 ifeq ($(PLATFORM),PLATFORM_ANDROID)
     MAKE = mingw32-make
 endif
+ifeq ($(PLATFORM),PLATFORM_WEB)
+    MAKE = mingw32-make
+endif
 
 # Define compiler flags: CFLAGS
 #------------------------------------------------------------------------------------------------
@@ -193,6 +196,9 @@ CFLAGS = -std=c99 -Wall -Wno-missing-braces -Wunused-result -D_DEFAULT_SOURCE
 
 ifeq ($(BUILD_MODE),DEBUG)
     CFLAGS += -g -D_DEBUG
+    ifeq ($(PLATFORM),PLATFORM_WEB)
+        CFLAGS += -s ASSERTIONS=1 --profiling
+    endif
 else
     ifeq ($(PLATFORM),PLATFORM_WEB)
         ifeq ($(BUILD_WEB_ASYNCIFY),TRUE)
@@ -206,6 +212,10 @@ else
 endif
 
 # Additional flags for compiler (if desired)
+# -Wextra               enables some extra warning flags that are not enabled by -Wall
+# -Wmissing-prototypes  warn if a global function is defined without a previous prototype declaration
+# -Wstrict-prototypes   warn if a function is declared or defined without specifying the argument types
+# -Werror=implicit-function-declaration catch function calls without prior declaration 
 #CFLAGS += -Wextra -Wmissing-prototypes -Wstrict-prototypes
 ifeq ($(PLATFORM),PLATFORM_DESKTOP)
     ifeq ($(PLATFORM_OS),LINUX)
@@ -226,9 +236,9 @@ ifeq ($(PLATFORM),PLATFORM_DRM)
 endif
 
 # Define include paths for required headers: INCLUDE_PATHS
-# NOTE: Some external/extras libraries could be required (stb, physac, easings...)
+# NOTE: Some external/extras libraries could be required (stb, easings...)
 #------------------------------------------------------------------------------------------------
-INCLUDE_PATHS = -I. -I$(RAYLIB_PATH)/src -I$(RAYLIB_PATH)/src/external -I$(RAYLIB_PATH)/src/extras
+INCLUDE_PATHS = -I. -I$(RAYLIB_PATH)/src -I$(RAYLIB_PATH)/src/external
 
 # Define additional directories containing required header files
 ifeq ($(PLATFORM),PLATFORM_DESKTOP)
@@ -316,8 +326,6 @@ ifeq ($(PLATFORM),PLATFORM_DESKTOP)
         # Libraries for Windows desktop compilation
         # NOTE: WinMM library required to set high-res timer resolution
         LDLIBS = -lraylib -lopengl32 -lgdi32 -lwinmm
-        # Required for physac examples
-        LDLIBS += -static -lpthread
     endif
     ifeq ($(PLATFORM_OS),LINUX)
         # Libraries for Debian GNU/Linux desktop compiling
@@ -337,6 +345,9 @@ ifeq ($(PLATFORM),PLATFORM_DESKTOP)
         ifeq ($(RAYLIB_LIBTYPE),SHARED)
             LDLIBS += -lc
         endif
+
+        # NOTE: On ARM 32bit arch, miniaudio requires atomics library
+        LDLIBS += -latomic 
     endif
     ifeq ($(PLATFORM_OS),OSX)
         # Libraries for OSX 10.9 desktop compiling
@@ -363,7 +374,7 @@ endif
 ifeq ($(PLATFORM),PLATFORM_DRM)
     # Libraries for DRM compiling
     # NOTE: Required packages: libasound2-dev (ALSA)
-    LDLIBS = -lraylib -lGLESv2 -lEGL -lpthread -lrt -lm -lgbm -ldrm -ldl
+    LDLIBS = -lraylib -lGLESv2 -lEGL -lpthread -lrt -lm -lgbm -ldrm -ldl -latomic
 endif
 ifeq ($(PLATFORM),PLATFORM_WEB)
     # Libraries for web (HTML5) compiling
