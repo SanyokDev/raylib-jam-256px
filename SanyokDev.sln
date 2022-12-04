@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Birball", "Projects\Birball\Birball.vcxproj", "{0981CA98-E4A5-4DF1-987F-A41D09131EFC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Raylib", "Projects\Raylib\Raylib.vcxproj", "{E89D61AC-55DE-4482-AFD4-DF7242EBC859}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0981CA98-E4A5-4DF1-987F-A41D09131EFC}.Debug|x64.ActiveCfg = Debug|x64
+		{0981CA98-E4A5-4DF1-987F-A41D09131EFC}.Debug|x64.Build.0 = Debug|x64
+		{0981CA98-E4A5-4DF1-987F-A41D09131EFC}.Release|x64.ActiveCfg = Release|x64
+		{0981CA98-E4A5-4DF1-987F-A41D09131EFC}.Release|x64.Build.0 = Release|x64
+		{E89D61AC-55DE-4482-AFD4-DF7242EBC859}.Debug|x64.ActiveCfg = Debug|x64
+		{E89D61AC-55DE-4482-AFD4-DF7242EBC859}.Debug|x64.Build.0 = Debug|x64
+		{E89D61AC-55DE-4482-AFD4-DF7242EBC859}.Release|x64.ActiveCfg = Release|x64
+		{E89D61AC-55DE-4482-AFD4-DF7242EBC859}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E926C768-6307-4423-A1EC-57E95B1FAB29}
+	EndGlobalSection
+EndGlobal

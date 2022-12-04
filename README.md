@@ -16,7 +16,7 @@ _Copyright (c) 2014-2022 Ramon Santamaria ([@raysan5](https://twitter.com/raysan
 
 ## $(Game Title)
 
-![$(Game Title)](screenshots/screenshot000.png "$(Game Title)")
+![$(Game Title)](Media/screenshot000.png "$(Game Title)")
 
 ### Description
 

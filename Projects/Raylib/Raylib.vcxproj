@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E89D61AC-55DE-4482-AFD4-DF7242EBC859}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Raylib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>$(DefaultPlatformToolset)</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>$(DefaultPlatformToolset)</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)\builds\$(ProjectName)\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\builds\$(ProjectName)\bin\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>$(SolutionDir)\builds\$(ProjectName)\bin\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)\builds\$(ProjectName)\bin\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);GRAPHICS_API_OPENGL_33;PLATFORM_DESKTOP</PreprocessorDefinitions>
+      <CompileAs>CompileAsC</CompileAs>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Externals\raylib\src\external\glfw\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);GRAPHICS_API_OPENGL_33;PLATFORM_DESKTOP</PreprocessorDefinitions>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat />
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Externals\raylib\src\external\glfw\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Externals\raylib\src\raudio.c" />
+    <ClCompile Include="..\..\Externals\raylib\src\rcore.c" />
+    <ClCompile Include="..\..\Externals\raylib\src\rglfw.c" />
+    <ClCompile Include="..\..\Externals\raylib\src\rmodels.c" />
+    <ClCompile Include="..\..\Externals\raylib\src\rshapes.c" />
+    <ClCompile Include="..\..\Externals\raylib\src\rtext.c" />
+    <ClCompile Include="..\..\Externals\raylib\src\rtextures.c" />
+    <ClCompile Include="..\..\Externals\raylib\src\utils.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Externals\raylib\src\config.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\external\cgltf.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\external\glad.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\external\jar_mod.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\external\jar_xm.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\external\miniaudio.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\external\stb_image.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\external\stb_image_resize.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\external\stb_image_write.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\external\stb_rect_pack.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\external\stb_truetype.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\external\stb_vorbis.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\raylib.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\raymath.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\rcamera.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\rgestures.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\rlgl.h" />
+    <ClInclude Include="..\..\Externals\raylib\src\utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\Externals\raylib\src\raylib.dll.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

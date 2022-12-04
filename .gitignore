@@ -59,5 +59,8 @@ dkms.conf
 *.user
 .vs
 
+# Rider files
+.idea
+
 # Build folder
 [Bb]uild
