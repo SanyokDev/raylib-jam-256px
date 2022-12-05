@@ -11,9 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="resources\ambient.ogg" />
-    <Content Include="resources\coin.wav" />
-    <Content Include="resources\mecha.png" />
+    <Content Include="resources\Mockup.png" />
     <Content Include="src\raylib.ico" />
     <ResourceCompile Include="src\game.rc" />
   </ItemGroup>
