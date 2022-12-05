@@ -8,7 +8,7 @@ A short game about a cute bird playing some ball.
 - TBD
 
 ### Links
-- itch.io Release: TBD
+- itch.io Release: https://sanyokdev.itch.io/birball
 - YouTube Gameplay: TBD
 
 ### License
