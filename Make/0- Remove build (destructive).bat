@@ -7,3 +7,5 @@ if exist %pname%.js (del %pname%.js)
 if exist %pname%.wasm (del %pname%.wasm)
 
 if exist libraylib.a (del libraylib.a)
+
+if exist ..\resources (rmdir /s /q ..\resources)
